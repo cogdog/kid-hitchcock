@@ -1,0 +1,18 @@
+/*
+Theme Name:     Kid Hitchcock
+Theme URI:      http://cog.dog
+Description:    Child theme for Hitchcock theme
+Author:         Alan Levine
+Author URI:     http://cogdogblog.com
+Template:       hitchcock
+Version:        0.2
+*/
+
+/* we no longer use @import for parent style, it's enqueue in functions.php */
+
+
+.post-content {
+    word-wrap: break-word;
+}
+
+
