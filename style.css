@@ -5,7 +5,7 @@ Description:    Child theme for Hitchcock theme
 Author:         Alan Levine
 Author URI:     http://cogdogblog.com
 Template:       hitchcock
-Version:        0.2
+Version:        0.3
 */
 
 /* we no longer use @import for parent style, it's enqueue in functions.php */
@@ -13,6 +13,11 @@ Version:        0.2
 
 .post-content {
     word-wrap: break-word;
+}
+
+/* menu links for slide stuff */
+.social-menu li a[href*="slideshare.net"]::before, .social-menu li a[href*="speakerdeck.com"]::before {
+    content: '\f1e7';
 }
 
 
