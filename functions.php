@@ -36,6 +36,14 @@ function kidhitchcock_register_theme_customizer( $wp_customize ) {
 
 	// Setting for custom footer
 	
+	// Add section in customizer for this stuff
+	$wp_customize->add_section( 'kid_stuff' , array(
+		'title'    => __('Kid Hitchcock Stuff','hitchcock'),
+		'priority' => 500
+	) );
+	
+	
+	
 	$wp_customize->add_setting( 'kid_footer_content', array(
 		 'default'           => __( '', 'hitchcock' ),
 		 'sanitize_callback' => 'kidhitchcock_sanitize_html'
@@ -44,7 +52,7 @@ function kidhitchcock_register_theme_customizer( $wp_customize ) {
 	// Add control for footer text
 	$wp_customize->add_control( new WP_Customize_Control(
 	    $wp_customize,
-		'content_footer_text',
+		'kid_footer_content',
 		    array(
 		        'label'    => __( 'Footer Text (allowable HTML tags are: "a, img, em, strong, br" all others will be stripped out)', 'hitchcock' ),
 		        'section'  => 'kid_stuff',
@@ -52,15 +60,7 @@ function kidhitchcock_register_theme_customizer( $wp_customize ) {
 		        'type'     => 'textarea'
 		    )
 	    )
-	);	
-
-	// Add section in customizer for this stuff
-	$wp_customize->add_section( 'kid_stuff' , array(
-		'title'    => __('Kid Hitchcock Stuff','hitchcock'),
-		'priority' => 500
-	) );
-
-	
+	);		
 
  	// Allow just some html
 	function kidhitchcock_sanitize_html( $value ) {
@@ -85,7 +85,6 @@ function kidhitchcock_register_theme_customizer( $wp_customize ) {
 	
 }
 
-
 function kidhitchcock_get_footer() {
 	 if ( get_theme_mod( 'kid_footer_content') != "" ) {
 	 	echo '<p>' . get_theme_mod( 'kid_footer_content') . '</p>';
@@ -93,10 +92,6 @@ function kidhitchcock_get_footer() {
 	 	echo '&copy; ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '" class="site-name">' . get_bloginfo( 'name' ) . '</a>';
 	 }
 }
-
-
-
-
 
 
 ?>
